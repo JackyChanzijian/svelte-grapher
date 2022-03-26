@@ -14,6 +14,7 @@
             --width: {data.value}px;
             --color: {randomColor()};
         "
+        content="{data.value}"
     >
     </div>
 </main>
@@ -29,5 +30,9 @@
         width: var(--width);
         height: inherit ;
         background-color: var(--color);
+    }
+    .bar::after {
+        float:right;
+        content: attr(content);
     }
 </style>
