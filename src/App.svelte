@@ -2,7 +2,7 @@
 	import BarGraph from "./BarGraph.svelte";
 	import Sheet from "./Sheet.svelte";
 
-	let datas = [];
+	let datas = [{ name: "test", value: 100}];
 	
 	let dataValue = 0;
 	let dataName = "";
