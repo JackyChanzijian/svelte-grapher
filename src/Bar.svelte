@@ -7,9 +7,9 @@
 </script>
 
 <main>
-    <span>{data.name}</span>
+    <span id="name">{data.name}</span>
     <div
-        class="bar" 
+        id="bar" 
         style="
             --width: {data.value}px;
             --color: {randomColor()};
@@ -23,7 +23,10 @@
     main {
         display: flex;
     }
-    .bar {
+    #name {
+        width: 60px;
+    }
+    #bar {
         --width: 0px;
         --color: red;
         display: inline-block;
@@ -31,8 +34,9 @@
         height: inherit ;
         background-color: var(--color);
     }
-    .bar::after {
-        float:right;
+    #bar::after {
+        float: right;
         content: attr(content);
+        /* overflow: hidden; */
     }
 </style>
