@@ -7,7 +7,7 @@
 </script>
 
 <main>
-    {#each datas as data}
+    {#each [...datas].reverse() as data}
         <Bar data={data} largestValue={largestValue} />
     {/each}
 </main>

@@ -3,6 +3,14 @@
     export let largestValue;
 
     $: percentageValue = data.value / largestValue * 100;  // This length is base on the largest value of all
+    
+    //  The percentage that animate(follow) the actual percentage when it changed
+    let animatePercentage = 0;
+    setInterval(() => {
+        if (Math.abs(percentageValue - animatePercentage) > 1) {
+            animatePercentage += (percentageValue - animatePercentage) / 100;
+        }
+    });
 
     function randomColor() {
         return "#" + Math.floor(Math.random()*16777215).toString(16);
@@ -14,7 +22,7 @@
     <div
         id="bar" 
         style="
-            --percentage-width: {percentageValue}%;
+            --percentage-width: {animatePercentage}%;
             --color: {randomColor()};
         "
         value="{data.value}"
