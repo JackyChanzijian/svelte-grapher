@@ -42,8 +42,8 @@ import { onMount } from "svelte";
 	<BarGraph datas={datas} />
 	<Sheet datas={datas} />
 	<form>
-		<input type="text" bind:value={dataName}>
-		<input type="number" bind:value={dataValue}>
+		<input type="text" placeholder="Name" bind:value={dataName}>
+		<input type="number" placeholder="Value" bind:value={dataValue}>
 		<input type="button" value="Enter" on:click={addData}>
 		<input type="button" value="Clear Data" on:click={clearDatas}>
 		<input type="button" value="Save Data" on:click={saveDatas}>
