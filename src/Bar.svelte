@@ -36,7 +36,7 @@
         --color: red;
         --percentage-width: 0%;
         display: inline-block;
-        width: var(--percentage-width);
+        width: calc(var(--percentage-width) * 0.9);
         height: inherit ;
         background-color: var(--color);
     }
