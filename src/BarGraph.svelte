@@ -3,11 +3,7 @@
 
     import Bar from "./Bar.svelte"
 
-    $: largestValue = () => {
-        if (datas !== []) {
-            return [...datas].sort((a,b) => a.value - b.value)[datas.length - 1].value;  //Get the biggest value   
-        }
-    }
+    $: largestValue = datas.length ? [...datas].sort((a,b) => a.value - b.value)[datas.length - 1].value : 0;  //Get the biggest value   
 </script>
 
 <main>
