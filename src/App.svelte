@@ -16,7 +16,9 @@
 		dataValue = 0;
 		dataName = "";	
 	}
-
+	function clearDatas() {
+		datas = [];
+	}
 </script>
 
 <main>
@@ -26,6 +28,7 @@
 		<input type="text" bind:value={dataName}>
 		<input type="number" bind:value={dataValue}>
 		<input type="button" value="Enter" on:click={addData}>
+		<input type="button" value="Clear Data" on:click={clearDatas}>
 	</form>
 </main>
 

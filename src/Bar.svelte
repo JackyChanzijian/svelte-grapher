@@ -4,9 +4,6 @@
 
     $: percentageValue = data.value / largestValue * 100;  // This length is base on the largest value of all
 
-    setInterval(() => {
-        console.log(percentageValue)
-    });
     function randomColor() {
         return "#" + Math.floor(Math.random()*16777215).toString(16);
     }
