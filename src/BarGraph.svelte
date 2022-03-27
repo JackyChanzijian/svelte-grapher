@@ -2,11 +2,13 @@
     export let datas;
 
     import Bar from "./Bar.svelte"
+
+    $: largestValue = [...datas].sort((a,b) => a.value - b.value)[datas.length - 1].value;  //Get the biggest value
 </script>
 
 <main>
     {#each datas as data}
-        <Bar data={data} />
+        <Bar data={data} largestValue={largestValue} />
     {/each}
 </main>
 
