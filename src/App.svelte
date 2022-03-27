@@ -1,4 +1,6 @@
 <script>
+import { onMount } from "svelte";
+
 	import BarGraph from "./BarGraph.svelte";
 	import Sheet from "./Sheet.svelte";
 
@@ -9,6 +11,9 @@
 
 	$: console.table(datas);
 
+	onMount(() => {
+		getDatas();
+	})
 	// Handle input
 	function addData() {
 		datas = [{name: dataName, value: dataValue}, ...datas];	// Add input field to datas array
@@ -18,6 +23,18 @@
 	}
 	function clearDatas() {
 		datas = [];
+	}
+	function saveDatas() {
+		localStorage.setItem("datas", JSON.stringify(datas));
+	}
+	function getDatas() {
+		if (localStorage.getItem("datas") !== null) {
+			datas = JSON.parse(localStorage.getItem("datas"));
+			console.log(123)
+		}
+		else {
+			datas = [];
+		}
 	}
 </script>
 
@@ -29,6 +46,7 @@
 		<input type="number" bind:value={dataValue}>
 		<input type="button" value="Enter" on:click={addData}>
 		<input type="button" value="Clear Data" on:click={clearDatas}>
+		<input type="button" value="Save Data" on:click={saveDatas}>
 	</form>
 </main>
 
