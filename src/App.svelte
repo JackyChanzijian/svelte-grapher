@@ -9,9 +9,9 @@ import { onMount } from "svelte";
 	let dataValue = 0;
 	let dataName = "";
 
-	let isAutoSave = false;
+	let isAutoSave = true;
 
-	$: console.table(datas);
+	$: console.log(isAutoSave);
 	// Autosave if the check box is checked and datas changed
 	$: if (isAutoSave) {
 		datas;
@@ -55,7 +55,7 @@ import { onMount } from "svelte";
 		<input type="button" value="Enter" on:click={addData}>
 		<input type="button" value="Clear Data" on:click={clearDatas}>
 		<input type="button" value="Save Data" on:click={saveDatas}>
-		<input type="checkbox" name="Auto Save" bind:value={isAutoSave}>
+		<input type="checkbox" name="Auto Save" bind:checked={isAutoSave}>
 	</form>
 </main>
 
