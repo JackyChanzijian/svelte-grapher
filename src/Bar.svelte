@@ -7,7 +7,7 @@
     //  The percentage that animate(follow) the actual percentage when it changed
     let animatePercentage = 0;
     setInterval(() => {
-        if (Math.abs(percentageValue - animatePercentage) > 1) {
+        if (Math.abs(percentageValue - animatePercentage) > 0.1) {
             animatePercentage += (percentageValue - animatePercentage) / 100;
         }
     });

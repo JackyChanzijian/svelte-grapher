@@ -4,13 +4,20 @@ import { onMount } from "svelte";
 	import BarGraph from "./BarGraph.svelte";
 	import Sheet from "./Sheet.svelte";
 
-	let datas = [{ name: "test1", value: 1000}, { name: "test2", value: 980}];
+	let datas = [];
 	
 	let dataValue = 0;
 	let dataName = "";
 
-	$: console.table(datas);
+	let isAutoSave = false;
 
+	$: console.table(datas);
+	// Autosave if the check box is checked and datas changed
+	$: if (isAutoSave) {
+		datas;
+		saveDatas();
+	}	
+	// This will invoke on web start
 	onMount(() => {
 		getDatas();
 	})
@@ -28,12 +35,13 @@ import { onMount } from "svelte";
 		localStorage.setItem("datas", JSON.stringify(datas));
 	}
 	function getDatas() {
-		if (localStorage.getItem("datas") !== null) {
+		if (localStorage.getItem("datas") !== undefined) {
 			datas = JSON.parse(localStorage.getItem("datas"));
-			console.log(123)
+			console.log("Datas get");
 		}
 		else {
 			datas = [];
+			console.log("Can't get datas");
 		}
 	}
 </script>
@@ -47,6 +55,7 @@ import { onMount } from "svelte";
 		<input type="button" value="Enter" on:click={addData}>
 		<input type="button" value="Clear Data" on:click={clearDatas}>
 		<input type="button" value="Save Data" on:click={saveDatas}>
+		<input type="checkbox" name="Auto Save" bind:value={isAutoSave}>
 	</form>
 </main>
 
