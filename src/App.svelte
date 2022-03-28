@@ -52,9 +52,9 @@ import { onMount } from "svelte";
 	<form>
 		<input type="text" placeholder="Name" bind:value={dataName}>
 		<input type="number" placeholder="Value" bind:value={dataValue}>
-		<input type="button" value="Enter" on:click={addData}>
-		<input type="button" value="Clear Data" on:click={clearDatas}>
-		<input type="button" value="Save Data" on:click={saveDatas}>
+		<button on:click|preventDefault={addData}>Enter</button>
+		<button on:click|preventDefault={clearDatas}>Clear Data</button>
+		<button on:click|preventDefault={saveDatas}>Save Data</button>
 		<input type="checkbox" name="Auto Save" bind:checked={isAutoSave}>
 	</form>
 </main>
