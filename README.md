@@ -7,6 +7,6 @@
 - [X] Animation
 - [ ] Styling
 - [ ] Random Colors (or color palette)
-- [ ] Auto save
+- [X] Auto save
 - [ ] Download as png
 
